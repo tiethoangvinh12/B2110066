@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "qlsv";
+$dbname = "qlbanhang";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,16 +13,13 @@ if ($conn->connect_error) {
 
 $date = date_create($_POST["birth"]);
 
-$sql = "INSERT INTO student (fullname, email, birthday, idmajor, major) VALUES ('".$_POST["name"] ."', '".$_POST["email"] ."', '".$date ->format('Y-m-d') ."','".$_post["idmajor"] ."','".$_POST["major"] ."')";
+$sql = "INSERT INTO customers (fullname, email, birthday, password) VALUES ('".$_POST["name"] ."', '".$_POST["email"] ."', '".$date ->format('Y-m-d') ."','".md5($_POST["pass"])."' )";
 
 if ($conn->query($sql) == TRUE) {
   echo "Them sinh vien thanh cong";
-//neu thuc hien thanh cong, chung ta se cho di chuyen den taidulieu_bang.php
-  header('Location: taidulieu_bang.php');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
 ?>
-

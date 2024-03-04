@@ -6,8 +6,8 @@
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
 Birthday: <input type="date" name="birth"><br>
-Mã chuyên ngành: <input type='text' name="idmajor"><br>
-Chuyên ngành: <input type='text' name="major"><br>
+Password: <input type="password" name="pass"><br>
+
 <input type="submit">
 </form>
 
